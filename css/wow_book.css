@@ -23,7 +23,7 @@
 }
 
 .wowbook-loading .wowbook-page-content {
-	background-image: url(./loading.gif);
+	background-image: url(../loading.gif);
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 }
@@ -84,7 +84,7 @@ img.wowbook-lazy {
 }
 
 .wowbook-shadow-internal {
-	background : url(./images/shadow_internal_fold.png) repeat-y;
+	background : url(../images/shadow_internal_fold.png) repeat-y;
 	height     : 500px;
 	width      : 200px;
 	position   : absolute;
@@ -93,7 +93,7 @@ img.wowbook-lazy {
 }
 
 .wowbook-shadow-fold {
-	background : url(./images/shadow_fold.png) right top repeat-y;
+	background : url(../images/shadow_fold.png) right top repeat-y;
 	height     : 500px;
 	width      : 100px;
 	position   : absolute;
@@ -102,11 +102,11 @@ img.wowbook-lazy {
 }
 
 .wowbook-shadow-fold-flipped  {
-	background-image : url(./images/shadow_fold_flip_h.png);
+	background-image : url(../images/shadow_fold_flip_h.png);
 }
 
 .wowbook-fold-gradient {
-	background : url(./images/fold_gradient.png) right top repeat-y;
+	background : url(../images/fold_gradient.png) right top repeat-y;
 	height : 500px;
 	width : 125px;
 	position : absolute;
@@ -116,7 +116,7 @@ img.wowbook-lazy {
 }
 
 .wowbook-fold-gradient-flipped {
-	background-image :  url(./fold_gradient_flip_h.png);
+	background-image :  url(../images/fold_gradient_flip_h.png);
 }
 
 .wowbook-fold-gradient-container {
@@ -132,13 +132,13 @@ img.wowbook-lazy {
 }
 
 .wowbook-left .wowbook-gutter-shadow {
-	background : url(./gutter_shadow_left.png) right top repeat-y;
+	background : url(./images/gutter_shadow_left.png) right top repeat-y;
 	right      : 0;
 	width      : 70px;
 }
 
 .wowbook-right .wowbook-gutter-shadow {
-	background : url(./gutter_shadow_right.png) right top repeat-y;
+	background : url(./images/gutter_shadow_right.png) right top repeat-y;
 	left       : 0;
 }
 
@@ -272,12 +272,12 @@ img.wowbook-lazy {
 .wowbook-horizontal.wowbook-thumbnails .wowbook-button {
 	width: 30px;
 	height: 100%;
-	background-image: url("arrow_left.png");
+	background-image: url("../images/icons/arrow_left.png");
 }
 
 .wowbook-horizontal.wowbook-thumbnails .wowbook-next.wowbook-button {
 	left: auto; right: 0;
-	background-image: url("arrow_right.png");
+	background-image: url("../images/icons/arrow_right.png");
 }
 
 .wowbook-horizontal .wowbook-thumbnail {
