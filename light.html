@@ -1,0 +1,263 @@
+<!doctype html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title></title>
+
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<style>
+/* always force a scrollbar in non-IE */
+html { overflow-y: scroll; }
+
+
+.wowbook {
+    position : relative;
+    zoom: 1;
+}
+.wowbook-page	{
+    zoom: 1;
+}
+
+.wowbook-page-content {
+    position : absolute;
+    overflow : hidden;
+    zoom: 1;
+}
+
+.wowbook-loading .wowbook-page-content {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+img.wowbook-lazy {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* marker class */
+.wowbook-left{}
+.wowbook-right{}
+.wowbook-disabled{}
+
+.wowbook-handle {
+    cursor   : pointer;
+    height   : 100%;
+    position : absolute;
+    top      : 0;
+    width    : 50px;
+    z-index  : 10000;
+    /* without this Chrome will mess the zindex of hardcover when it flips, making
+       the cover to jump when the "curl page corner on hover" is enabled */
+    -webkit-transform: translate3d(0px, 0px, 10000px);
+}
+
+.wowbook-handle.wowbook-disabled {
+    display : none;
+}
+
+.wowbook-unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.wowbook-page-content.wowbook-double-page {
+    padding: 0;
+}
+
+/* shadows */
+.wowbook-shadow-clipper {
+    position : absolute;
+    overflow : hidden;
+    z-index : 999; /* 1 a menos do que o verso da pagina sendo foldada */
+    zoom: 1;
+    -webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-shadow-container {
+    display  : none;
+    position : absolute;
+    z-index  : 999; /* 1 a menos do que o verso da pagina sendo foldada */
+    zoom: 1;
+}
+
+.wowbook-shadow-internal {
+    background : url(./images/shadow_internal_fold.png) repeat-y;
+    height     : 500px;
+    width      : 200px;
+    position   : absolute;
+    zoom: 1;
+    -webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-shadow-fold {
+    background : url(./images/shadow_fold.png) right top repeat-y;
+    height     : 500px;
+    width      : 100px;
+    position   : absolute;
+    zoom       : 1;
+    -webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-shadow-fold-flipped  {
+    background-image : url(./images/shadow_fold_flip_h.png);
+}
+
+.wowbook-fold-gradient {
+    background : url(./images/fold_gradient.png) right top repeat-y;
+    height : 500px;
+    width : 125px;
+    position : absolute;
+    top : 0;
+    zoom: 1;
+    -webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-fold-gradient-flipped {
+    background-image :  url(./images/fold_gradient_flip_h.png);
+}
+
+.wowbook-fold-gradient-container {
+    position : absolute;
+    z-index  : 1001; /* 1 a mais que o verso da pagina sendo foldada */
+}
+
+.wowbook-gutter-shadow {
+    height     : 100%;
+    width      : 40px;
+    position   : absolute;
+    top        : 0;
+}
+
+.wowbook-left .wowbook-gutter-shadow {
+    background : url(./images/gutter_shadow_left.png) right top repeat-y;
+    right      : 0;
+    width      : 70px;
+}
+
+.wowbook-right .wowbook-gutter-shadow {
+    background : url(./images/gutter_shadow_right.png) right top repeat-y;
+    left       : 0;
+}
+
+.wowbook-hard-page-shadow {
+    background : #888;
+    position   : absolute;
+    top        : 0;
+    z-index    : 999; /* 1 a menos do que o verso da pagina sendo foldada */
+}
+
+.wowbook-page-number {
+    bottom   : 0;
+    padding-bottom: 0.3em;
+    position : absolute;
+}
+
+.wowbook-left .wowbook-page-number {
+    left : 0;
+    padding-left: 0.5em;
+}
+
+.wowbook-right .wowbook-page-number {
+    right : 0;
+    padding-right: 0.5em;
+}
+
+.wowbook-book-shadow{
+    -moz-box-shadow: 0 0 7px #666;
+    -ms-box-shadow: 0 0 7px #666;
+    -webkit-box-shadow: 0 0 7px #666;
+    -o-box-shadow: 0 0 7px #666;
+    box-shadow: 0 0 7px #666; /* if you change this, change the .wowbook-hard-page-shadow too */
+}
+
+.wowbook-hard-page-shadow {
+    background : #888;
+    box-shadow: 0 0 2px 0px #666;
+    background: rgba(96, 96, 96, 0.5);
+    position   : absolute;
+    top        : 0;
+    z-index    : 999;
+}
+
+.wowbook-page-holded {
+}
+.wowbook-page-holded object {
+    /* visibility: hidden; */
+}
+</style>
+
+<div style="background-color: #FFFF33; padding-top: 25px">
+
+    <style>.feature{ background-color: #fff; }</style>
+
+    <div id='features'>
+
+        <div class='feature'>
+            <p>text, text, text, text, text</p>
+        </div>
+        <div class='feature'>
+            <p>text, text, text, text, text</p>
+        </div>
+        <div class='feature'>
+            <p>text, text, text, text, text</p>
+        </div>
+        <div class='feature'>
+            <p>text, text, text, text, text</p>
+        </div>
+
+    </div> <!-- features -->
+
+    <div style="padding-top: 15px; text-align: center">
+        <a id='first'     href="#" title='goto first page'   >First page</a> &nbsp;
+        <a id='back'      href="#" title='go back one page'  >Back</a> &nbsp;
+        <a id='next'      href="#" title='go foward one page'>Next</a> &nbsp;
+        <a id='last'      href="#" title='goto last page'    >last page</a> &nbsp;
+        <a id='slideshow' href="#" title='start slideshow'   >Slide Show</a> &nbsp;
+        <a id='fullscreen' href="#" title='fullscreen on/off' >Fullscreen</a>
+    </div>
+
+</div>
+
+<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+<script src="js/modernizr-1.6.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="wow_book.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#features').wowBook({height : 500, width  : 800, pageNumbers: 0, flipSound: 0, controls : {
+            next      : '#next',
+            back      : '#back',
+            first     : '#first',
+            last      : '#last',
+            slideShow : '#slideshow',
+            flipSound : '#flipsound',
+            fullscreen : '#fullscreen'
+        }}).css({'display':'none', 'margin':'auto'}).fadeIn(1000);
+
+    });
+</script>
+
+</body>
+</html>
