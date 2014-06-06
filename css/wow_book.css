@@ -1,0 +1,325 @@
+/*
+ * @name wowBook
+ * @desc style for wowBook plugin for jQuery
+ *
+ * @author Marcio Aguiar
+ * @version 1.0
+ *
+ * Date: Wed Dec 8 10:05:49 2010 -0200
+ */
+
+.wowbook {
+	position : relative;
+	zoom: 1;
+}
+.wowbook-page	{
+	zoom: 1;
+}
+
+.wowbook-page-content {
+	position : absolute;
+	overflow : hidden;
+	zoom: 1;
+}
+
+.wowbook-loading .wowbook-page-content {
+	background-image: url(./loading.gif);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+img.wowbook-lazy {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+/* marker class */
+.wowbook-left{}
+.wowbook-right{}
+.wowbook-disabled{}
+
+.wowbook-handle {
+	cursor   : pointer;
+	height   : 100%;
+	position : absolute;
+	top      : 0;
+	width    : 50px;
+	z-index  : 10000;
+	/* without this Chrome will mess the zindex of hardcover when it flips, making
+	   the cover to jump when the "curl page corner on hover" is enabled */
+	-webkit-transform: translate3d(0px, 0px, 10000px);
+}
+
+.wowbook-handle.wowbook-disabled {
+	display : none;
+}
+
+.wowbook-unselectable {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.wowbook-page-content.wowbook-double-page {
+	padding: 0;
+}
+
+/* shadows */
+.wowbook-shadow-clipper {
+	position : absolute;
+	overflow : hidden;
+	z-index : 999; /* 1 a menos do que o verso da pagina sendo foldada */
+	zoom: 1;
+	-webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-shadow-container {
+	display  : none;
+	position : absolute;
+	z-index  : 999; /* 1 a menos do que o verso da pagina sendo foldada */
+	zoom: 1;
+}
+
+.wowbook-shadow-internal {
+	background : url(./images/shadow_internal_fold.png) repeat-y;
+	height     : 500px;
+	width      : 200px;
+	position   : absolute;
+	zoom: 1;
+	-webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-shadow-fold {
+	background : url(./images/shadow_fold.png) right top repeat-y;
+	height     : 500px;
+	width      : 100px;
+	position   : absolute;
+	zoom       : 1;
+	-webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-shadow-fold-flipped  {
+	background-image : url(./images/shadow_fold_flip_h.png);
+}
+
+.wowbook-fold-gradient {
+	background : url(./images/fold_gradient.png) right top repeat-y;
+	height : 500px;
+	width : 125px;
+	position : absolute;
+	top : 0;
+	zoom: 1;
+	-webkit-backface-visibility: hidden; /* eliminate jagged edges */
+}
+
+.wowbook-fold-gradient-flipped {
+	background-image :  url(./fold_gradient_flip_h.png);
+}
+
+.wowbook-fold-gradient-container {
+	position : absolute;
+	z-index  : 1001; /* 1 a mais que o verso da pagina sendo foldada */
+}
+
+.wowbook-gutter-shadow {
+	height     : 100%;
+	width      : 40px;
+	position   : absolute;
+	top        : 0;
+}
+
+.wowbook-left .wowbook-gutter-shadow {
+	background : url(./gutter_shadow_left.png) right top repeat-y;
+	right      : 0;
+	width      : 70px;
+}
+
+.wowbook-right .wowbook-gutter-shadow {
+	background : url(./gutter_shadow_right.png) right top repeat-y;
+	left       : 0;
+}
+
+.wowbook-hard-page-shadow {
+	background : #888;
+	position   : absolute;
+	top        : 0;
+	z-index    : 999; /* 1 a menos do que o verso da pagina sendo foldada */
+}
+
+.wowbook-page-number {
+	bottom   : 0;
+	padding-bottom: 0.3em;
+	position : absolute;
+}
+
+.wowbook-left .wowbook-page-number {
+	left : 0;
+	padding-left: 0.5em;
+}
+
+.wowbook-right .wowbook-page-number {
+	right : 0;
+	padding-right: 0.5em;
+}
+
+.wowbook-book-shadow{
+	-moz-box-shadow: 0 0 7px #666;
+	-ms-box-shadow: 0 0 7px #666;
+	-webkit-box-shadow: 0 0 7px #666;
+	-o-box-shadow: 0 0 7px #666;
+	box-shadow: 0 0 7px #666; /* if you change this, change the .wowbook-hard-page-shadow too */
+}
+
+.wowbook-hard-page-shadow {
+	background : #888;
+	box-shadow: 0 0 2px 0px #666;
+	background: rgba(96, 96, 96, 0.5);
+	position   : absolute;
+	top        : 0;
+	z-index    : 999;
+}
+
+.wowbook-page-holded {
+}
+.wowbook-page-holded object {
+	/* visibility: hidden; */
+}
+
+
+/* Thumbnails */
+.wowbook-thumbnails {
+	background: none;
+	left: 0px;
+	top: 0px;
+    position: absolute;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	image-rendering:optimizeQuality;
+    z-index: 10000;
+}
+
+.wowbook-thumbnails .wowbook-clipper {
+	overflow: hidden;
+	position: relative;
+}
+
+.wowbook-thumbnails ul {
+    position: relative;
+    margin : 0;
+    padding : 0;
+}
+
+.wowbook-thumbnails .wowbook-button {
+	background: none no-repeat 50% 50% #333;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+.wowbook-thumbnail {
+	cursor : pointer;
+	display : inline-block;
+	*display: inline; /* for IE7 */
+	zoom: 1;	      /* for IE7 */
+	overflow: hidden;
+	position: relative;
+	vertical-align: top;
+}
+
+/* BUGFIX. IE8 apparently ignores background-position
+   when zoom<>1 is applied and the element has position:absolute */
+.wowbook-thumbnail .wowbook-page-content {
+	position: relative;
+}
+
+.wowbook-thumbnail.wowbook-right {
+	margin-right: 1em;
+}
+
+.wowbook-overlay {
+	left: 0;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 100000;
+}
+
+/* Thumbnails - horizontal */
+.wowbook-horizontal.wowbook-thumbnails{
+	width: 100%;
+}
+
+.wowbook-horizontal.wowbook-thumbnails .wowbook-clipper {
+	height: 100%;
+	position: relative;
+	margin: 0 30px; /* margin is the width of the buttons */
+}
+
+.wowbook-horizontal.wowbook-thumbnails ul {
+	display: inline-block;
+	*display: inline; /* IE7 */
+	*zoom: 1;         /* IE7 */
+	white-space: nowrap;
+}
+
+.wowbook-horizontal.wowbook-thumbnails .wowbook-button {
+	width: 30px;
+	height: 100%;
+	background-image: url("arrow_left.png");
+}
+
+.wowbook-horizontal.wowbook-thumbnails .wowbook-next.wowbook-button {
+	left: auto; right: 0;
+	background-image: url("arrow_right.png");
+}
+
+.wowbook-horizontal .wowbook-thumbnail {
+	/* without this, the "nowrap" value set in the "ul" will
+	   be inherited and (probably)	mess with your thumbnails */
+	white-space: normal;
+	/* BUT IE7 NEED THIS */
+	*white-space: nowrap;
+}
+.wowbook-horizontal .wowbook-thumbnail .wowbook-page-content{
+	/* AGAIN, IE7 NEED THIS */
+	*white-space: normal;
+}
+
+
+
+/* Thumbnails - vertical */
+
+.wowbook-vertical.wowbook-thumbnails {
+	display: inline-block;
+	height: 100%;
+}
+
+.wowbook-vertical.wowbook-thumbnails .wowbook-clipper {
+	position: absolute;
+	top: 30px; bottom: 30px; /* this value is the height of the buttons */
+}
+
+.wowbook-vertical.wowbook-thumbnails .wowbook-button {
+	height: 30px;
+	width: 100%;
+	background-image: url("../images/arrow_up.png");
+}
+
+.wowbook-vertical.wowbook-thumbnails .wowbook-next.wowbook-button {
+	bottom: 0; top: auto;
+	background-image: url("../images/arrow_down.png");
+}
+
+.wowbook-vertical .wowbook-thumbnail.wowbook-right {
+	margin-right: 0;
+}
+.wowbook-vertical .wowbook-thumbnail:first-child {
+	margin-left: 50%;
+}
